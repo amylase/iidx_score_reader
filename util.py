@@ -1,4 +1,3 @@
-import yaml
 from pyquery import PyQuery as pq
 from typing import List, Dict
 from constants import HISPEED, FULL_BAR_HEIGHT, \
@@ -27,15 +26,15 @@ class Page:
     def load(self):
         from selenium import webdriver, common
 
-        try:
-            with open('config.yaml', 'r') as f:
-                config = yaml.safe_load(f)
-        except IOError:
-            raise FileNotFoundError('config.yaml not found!')
-        chrome_path = config['chrome_web_driver_path']  # chrome_driver.exe
+        # try:
+        #     with open('config.yaml', 'r') as f:
+        #         config = yaml.safe_load(f)
+        # except IOError:
+        #     raise FileNotFoundError('config.yaml not found!')
+        # chrome_path = config['chrome_web_driver_path']  # chrome_driver.exe
 
         try:
-            web = webdriver.Chrome(chrome_path)
+            web = webdriver.Chrome()
         except common.exceptions.WebDriverException:
             raise RuntimeError('chrome driver error!')
         web.get(self.adr)

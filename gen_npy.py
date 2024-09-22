@@ -1,3 +1,4 @@
+import os
 import os.path
 from sys import argv
 import numpy as np
@@ -32,6 +33,8 @@ if __name__ == '__main__':
     else:
         # url = r"http://textage.cc/score/17/raison.html?1AB00" # for example
         url = argv[1]
+        if not os.path.exists("score_sp_npy"):
+            os.mkdir("score_sp_npy")
         result_path = 'score_sp_npy/' + extract_url_name(url) + '.npy'
 
         # see if result is already generated
