@@ -147,6 +147,7 @@ score_sp_npy/
 time_df/
 fumen/
 .idea/
+charts_info.json
 
 # not ready yet
 app.py
